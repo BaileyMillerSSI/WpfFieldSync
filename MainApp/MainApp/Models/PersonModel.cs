@@ -43,7 +43,7 @@ namespace MainApp.Models
             PropertyInfo prop = this.GetType().GetProperty(PropName, BindingFlags.Public | BindingFlags.Instance);
             if (null != prop && prop.CanWrite)
             {
-                prop.SetValue(this, Value, null);
+                prop.SetValue(this, Convert.ChangeType(Value, prop.PropertyType), null);
             }
         }
         
